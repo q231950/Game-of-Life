@@ -48,6 +48,9 @@ struct CellController {
     }
 
     private func rightCell(for index:Int, cells: [Cell]) -> Cell {
+        if (index + 1) % width == 0 {
+            return cell(for: index, offset: -width + 1, cells: cells)
+        }
         return cell(for: index, offset: 1, cells: cells)
     }
 
