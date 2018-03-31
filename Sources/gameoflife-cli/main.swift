@@ -1,4 +1,4 @@
 import gameoflife 
 
 let gameOfLife = GameOfLife()
-gameOfLife.run()
+gameOfLife.tick()

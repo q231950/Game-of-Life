@@ -19,7 +19,7 @@ public class GameOfLife {
     return cells
   }
 
-  public func run() {
+  public func tick() {
     print("Game of Life.")
   }
 }
