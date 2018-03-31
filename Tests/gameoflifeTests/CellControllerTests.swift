@@ -2,6 +2,9 @@ import XCTest
 @testable import gameoflife
 
 class CellControllerTests: XCTestCase {
+
+    // MARK: Configure
+
     let cells = [Cell(), Cell(), Cell(), Cell(), Cell(), Cell(), Cell(), Cell(), Cell()]
     let cellController = CellController(width: 3, height: 3)
 
@@ -313,5 +316,3 @@ class CellControllerTests: XCTestCase {
         XCTAssertEqual(cells[5], cells[3].leftNeighbor, "The left neighbor of a cell should be assigned for cells which are aligned left most")
     }
 }
-
-

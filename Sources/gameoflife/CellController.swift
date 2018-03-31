@@ -4,13 +4,6 @@ struct CellController {
 
     func assignNeighbors(to cells: [Cell]) {
         for (index, cell) in cells.enumerated() {
-            //
-            // w/h |01234567
-            //    -+----------
-            //    0|........
-            //    1|..o.....
-            //    2|........
-            //
             cell.neighbors[0] = topLeftCell(for: index, cells: cells)
             cell.neighbors[1] = topCenterCell(for: index, cells: cells)
             cell.neighbors[2] = topRightCell(for: index, cells: cells)
