@@ -1,8 +1,9 @@
 import XCTest
 @testable import gameoflife
 
-class gameoflifeTests: XCTestCase {
-  func testEmptyGameOfLifeHasNoCells() {
+class GameoflifeTests: XCTestCase {
+
+    func testEmptyGameOfLifeHasNoCells() {
     let gameOfLife = GameOfLife()
     XCTAssertEqual(gameOfLife.cells.count, 0, "An empty Game Of Life should have 0 cells")
   }
@@ -18,6 +19,8 @@ class gameoflifeTests: XCTestCase {
     let gameOfLife = GameOfLife(width:20, height:10)
     XCTAssertEqual(gameOfLife.cells.count, 200, "The number of cells should be according to the given size of the habitat")
   }
+
+  
 
   static var allTests = [
     ("testEmptyGameOfLifeHasNoCells", testEmptyGameOfLifeHasNoCells),
