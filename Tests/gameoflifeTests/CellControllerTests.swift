@@ -274,6 +274,44 @@ class CellControllerTests: XCTestCase {
     func testAssignsBottomLeftNeighborForLeftMostCell() {
         XCTAssertEqual(cells[8], cells[3].bottomLeftNeighbor, "The bottom left neighbor of a cell should be assigned for cells which are aligned left most")
     }
+
+    // MARK: Left
+
+    func testAssignsLeftNeighborForSurroundedCell() {
+        XCTAssertEqual(cells[3], cells[4].leftNeighbor, "The left neighbor of a cell should be assigned for cells which are surrounded by other cells")
+    }
+
+    func testAssignsLeftNeighborForTopLeftMostCell() {
+        XCTAssertEqual(cells[2], cells[0].leftNeighbor, "The left neighbor of a cell should be assigned for cells which are aligned top and left most")
+    }
+
+    func testAssignsLeftNeighborForTopMostCell() {
+        XCTAssertEqual(cells[0], cells[1].leftNeighbor, "The left neighbor of a cell should be assigned for cells which are aligned top most")
+    }
+
+    func testAssignsLeftNeighborForTopRightMostCell() {
+        XCTAssertEqual(cells[1], cells[2].leftNeighbor, "The left neighbor of a cell should be assigned for cells which are aligned right and top most")
+    }
+
+    func testAssignsLeftNeighborForRightMostCell() {
+        XCTAssertEqual(cells[4], cells[5].leftNeighbor, "The left neighbor of a cell should be assigned for cells which are aligned right most")
+    }
+
+    func testAssignsLeftNeighborForBottomRightMostCell() {
+        XCTAssertEqual(cells[7], cells[8].leftNeighbor, "The left neighbor of a cell should be assigned for cells which are aligned right and bottom most")
+    }
+
+    func testAssignsLeftNeighborForBottomMostCell() {
+        XCTAssertEqual(cells[6], cells[7].leftNeighbor, "The left neighbor of a cell should be assigned for cells which are aligned bottom most")
+    }
+
+    func testAssignsLeftNeighborForBottomLeftMostCell() {
+        XCTAssertEqual(cells[8], cells[6].leftNeighbor, "The left neighbor of a cell should be assigned for cells which are aligned bottom most")
+    }
+
+    func testAssignsLeftNeighborForLeftMostCell() {
+        XCTAssertEqual(cells[5], cells[3].leftNeighbor, "The left neighbor of a cell should be assigned for cells which are aligned left most")
+    }
 }
 
 
