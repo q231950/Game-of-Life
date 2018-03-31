@@ -1,10 +1,11 @@
-
 public class GameOfLife {
 
   let cells: [Cell]
 
   public init(width: Int = 0, height: Int = 0) {
     cells = GameOfLife.generateCells(width: width, height: height)
+    let cellController = CellController(width:width, height:height)
+    cellController.assignNeighbors(to: cells)
   }
 
   static func generateCells(width: Int, height: Int) -> [Cell] {
