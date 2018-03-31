@@ -66,6 +66,9 @@ struct CellController {
     }
 
     private func bottomLeftCell(for index:Int, cells: [Cell]) -> Cell {
+        if index % width == 0 {
+            return cell(for: index, offset: (2 * width) - 1, cells: cells)
+        }
         return cell(for: index, offset: width - 1, cells: cells)
     }
 
