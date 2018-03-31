@@ -8,7 +8,7 @@ public class GameOfLife {
   }
 
   static func generateCells() -> [Cell] {
-    return [Cell]()
+    return [Cell()]
   }
 
   public func run() {
