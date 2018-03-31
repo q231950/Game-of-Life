@@ -1,3 +1,4 @@
-import Foundation
+import gameoflife 
 
-print("Game of Life.")
+let gameOfLife = GameOfLife()
+gameOfLife.run()
