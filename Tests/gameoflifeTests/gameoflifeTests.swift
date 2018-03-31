@@ -2,15 +2,12 @@ import XCTest
 @testable import gameoflife
 
 class gameoflifeTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(gameoflife().text, "Hello, World!")
+    func testGameOfLifeHasCells() {
+      let gameOfLife = GameOfLife()
+        XCTAssertTrue(gameOfLife.cells.count > 0, "Game Of Life should have Cells")
     }
 
-
     static var allTests = [
-        ("testExample", testExample),
+        ("testGameOfLifeHasCells", testGameOfLifeHasCells),
     ]
 }
