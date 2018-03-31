@@ -236,6 +236,44 @@ class CellControllerTests: XCTestCase {
     func testAssignsBottomCenterNeighborForLeftMostCell() {
         XCTAssertEqual(cells[6], cells[3].bottomCenterNeighbor, "The bottom center neighbor of a cell should be assigned for cells which are aligned left most")
     }
+
+    // MARK: Bottom Left
+
+    func testAssignsBottomLeftNeighborForSurroundedCell() {
+        XCTAssertEqual(cells[6], cells[4].bottomLeftNeighbor, "The bottom left neighbor of a cell should be assigned for cells which are surrounded by other cells")
+    }
+
+    func testAssignsBottomLeftNeighborForTopLeftMostCell() {
+        XCTAssertEqual(cells[5], cells[0].bottomLeftNeighbor, "The bottom left neighbor of a cell should be assigned for cells which are aligned top and left most")
+    }
+
+    func testAssignsBottomLeftNeighborForTopMostCell() {
+        XCTAssertEqual(cells[3], cells[1].bottomLeftNeighbor, "The bottom left neighbor of a cell should be assigned for cells which are aligned top most")
+    }
+
+    func testAssignsBottomLeftNeighborForTopRightMostCell() {
+        XCTAssertEqual(cells[4], cells[2].bottomLeftNeighbor, "The bottom left neighbor of a cell should be assigned for cells which are aligned right and top most")
+    }
+
+    func testAssignsBottomLeftNeighborForRightMostCell() {
+        XCTAssertEqual(cells[7], cells[5].bottomLeftNeighbor, "The bottom left neighbor of a cell should be assigned for cells which are aligned right most")
+    }
+
+    func testAssignsBottomLeftNeighborForBottomRightMostCell() {
+        XCTAssertEqual(cells[1], cells[8].bottomLeftNeighbor, "The bottom left neighbor of a cell should be assigned for cells which are aligned right and bottom most")
+    }
+
+    func testAssignsBottomLeftNeighborForBottomMostCell() {
+        XCTAssertEqual(cells[0], cells[7].bottomLeftNeighbor, "The bottom left neighbor of a cell should be assigned for cells which are aligned bottom most")
+    }
+
+    func testAssignsBottomLeftNeighborForBottomLeftMostCell() {
+        XCTAssertEqual(cells[2], cells[6].bottomLeftNeighbor, "The bottom left neighbor of a cell should be assigned for cells which are aligned bottom most")
+    }
+
+    func testAssignsBottomLeftNeighborForLeftMostCell() {
+        XCTAssertEqual(cells[8], cells[3].bottomLeftNeighbor, "The bottom left neighbor of a cell should be assigned for cells which are aligned left most")
+    }
 }
 
 
