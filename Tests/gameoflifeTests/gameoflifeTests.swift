@@ -2,9 +2,16 @@ import XCTest
 @testable import gameoflife
 
 class gameoflifeTests: XCTestCase {
-  func testGameOfLifeHasCells() {
+  func testEmptyGameOfLifeHasNoCells() {
     let gameOfLife = GameOfLife()
-    XCTAssertTrue(gameOfLife.cells.count > 0, "Game Of Life should have cells")
+    XCTAssertEqual(gameOfLife.cells.count, 0, "An empty Game Of Life should have 0 cells")
+  }
+
+  func testNonEmptyGameOfLifeShouldHaveCells() {
+    let width = Int(arc4random_uniform(9)) + 1
+    let height = Int(arc4random_uniform(9)) + 1
+    let gameOfLife = GameOfLife(width:width, height:height)
+    XCTAssertTrue(gameOfLife.cells.count > 0, "A Game of Life with at least one row and column should have more than zero cells")
   }
 
   func testGameOfLifeHasCorrectNumberOfCells() {
@@ -13,7 +20,8 @@ class gameoflifeTests: XCTestCase {
   }
 
   static var allTests = [
-    ("testGameOfLifeHasCells", testGameOfLifeHasCells),
+    ("testEmptyGameOfLifeHasNoCells", testEmptyGameOfLifeHasNoCells),
+    ("testNonEmptyGameOfLifeShouldHaveCells", testNonEmptyGameOfLifeShouldHaveCells),
     ("testGameOfLifeHasCorrectNumberOfCells", testGameOfLifeHasCorrectNumberOfCells),
   ]
 }
