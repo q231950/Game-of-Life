@@ -3,7 +3,7 @@ public class GameOfLife {
 
   let cells: [Cell]
 
-  public init() {
+  public init(width: Int = 0, height: Int = 0) {
     cells = GameOfLife.generateCells()
   }
 
@@ -12,6 +12,6 @@ public class GameOfLife {
   }
 
   public func run() {
-    print("Game of Life.") 
+    print("Game of Life.")
   }
 }
