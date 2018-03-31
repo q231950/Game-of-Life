@@ -4,14 +4,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "gameoflife",
+    name: "GameOfLife",
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
-            name: "gameoflife",
+            name: "GameOfLife",
             targets: ["gameoflife"]),
         .executable(
-            name: "gameoflife-cli", 
+            name: "GameOfLife-cli", 
             targets: ["gameoflife-cli"])
     ],
     dependencies: [
