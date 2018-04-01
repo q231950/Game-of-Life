@@ -1,4 +1,4 @@
-import gameoflife
+import GameOfLifeCore
 
 class ConsoleVisualRepresentation {
 

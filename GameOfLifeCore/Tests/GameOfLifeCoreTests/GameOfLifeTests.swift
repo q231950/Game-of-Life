@@ -1,5 +1,5 @@
 import XCTest
-@testable import gameoflife
+@testable import GameOfLifeCore
 
 class GameoflifeTests: XCTestCase {
     
