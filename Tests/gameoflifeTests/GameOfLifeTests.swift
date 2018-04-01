@@ -30,7 +30,17 @@ class GameoflifeTests: XCTestCase {
         })
         XCTAssertEqual(emptyNeighbors.count, 0, "Cells in Game of Life should not have empty neighbors")
     }
-    
+
+    func testGameOfLifeRows() {
+        let gameOfLife = GameOfLife(width: 3, height: 4)
+        let rows = gameOfLife.rows
+
+        XCTAssertEqual(rows.count, 4)
+        rows.forEach { (row) in
+            XCTAssertEqual(row.count, 3)
+        }
+    }
+
     static var allTests = [
         ("testEmptyGameOfLifeHasNoCells", testEmptyGameOfLifeHasNoCells),
         ("testNonEmptyGameOfLifeShouldHaveCells", testNonEmptyGameOfLifeShouldHaveCells),
