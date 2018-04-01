@@ -2,6 +2,8 @@ struct CellController {
     let width: Int
     let height: Int
 
+    // MARK: Neighbor Control
+
     func assignNeighbors(to cells: [Cell]) {
         for (index, cell) in cells.enumerated() {
             cell.neighbors[0] = topLeftCell(for: index, cells: cells)
@@ -70,5 +72,11 @@ struct CellController {
             return cell(for: index, offset: width - 1, cells: cells)
         }
         return cell(for: index, offset: -1, cells: cells)
+    }
+
+    // MARK: Seed Control
+
+    func applySeed(_ seed: [(Int, Int)]) {
+
     }
 }

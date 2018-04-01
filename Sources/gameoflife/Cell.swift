@@ -1,5 +1,5 @@
 public class Cell: Equatable {
-    var populated = false
+    public internal(set) var populated: Bool! = false
     var neighbors: [Cell?] = [nil, nil, nil, nil, nil, nil, nil, nil]
     private(set) lazy var topLeftNeighbor = neighbors[0]!
     private(set) lazy var topCenterNeighbor = neighbors[1]!
