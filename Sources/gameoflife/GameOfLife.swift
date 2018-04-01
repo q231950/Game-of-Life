@@ -10,9 +10,11 @@ public class GameOfLife {
     }
     internal var cells: [Cell]
     internal let width: Int
+    internal let height: Int
 
     public init(width: Int = 0, height: Int = 0, seed: [(Int, Int)] = []) {
         self.width = width
+        self.height = height
         cells = GameOfLife.generateCells(width: width, height: height)
         let cellController = CellController(width:width, height:height)
         cellController.assignNeighbors(to: cells)
@@ -33,5 +35,8 @@ public class GameOfLife {
     public func tick() {
         let populationController = PopulationController()
         cells = populationController.populate(cells: cells)
+
+        let cellController = CellController(width:width, height:height)
+        cellController.assignNeighbors(to: cells)
     }
 }
