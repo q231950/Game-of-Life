@@ -56,6 +56,12 @@ class GameoflifeTests: XCTestCase {
         XCTAssertNotEqual(cells, gameOfLife.cells, "A habitat with dying cells should update after a tick")
     }
 
+    func testTickPopulatesCellToBePopulated() {
+        let gameOfLife = GameOfLife(width: 3, height: 3, seed:[(0,0), (0,1), (0,2)])
+        gameOfLife.tick()
+        XCTAssertTrue(gameOfLife.cells[4].populated, "A cell with 3 populated neighbors should become populated")
+    }
+
     static var allTests = [
         ("testEmptyGameOfLifeHasNoCells", testEmptyGameOfLifeHasNoCells),
         ("testNonEmptyGameOfLifeShouldHaveCells", testNonEmptyGameOfLifeShouldHaveCells),
@@ -63,5 +69,6 @@ class GameoflifeTests: XCTestCase {
         ("testGameOfLifeRows", testGameOfLifeRows),
         ("testSeedSeeds", testSeedSeeds),
         ("testTickUpdatesCells", testTickUpdatesCells),
+        ("testTickPopulatesCellToBePopulated", testTickPopulatesCellToBePopulated),
         ]
 }
