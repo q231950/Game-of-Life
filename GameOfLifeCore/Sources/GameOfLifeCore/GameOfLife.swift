@@ -8,9 +8,9 @@ public class GameOfLife {
             return Array(cells[$0..<chunkEnd])
         }
     }
-    internal var cells: [Cell]
-    internal let width: Int
-    internal let height: Int
+    public let width: Int
+    public let height: Int
+    public var cells: [Cell]
 
     public init(width: Int = 0, height: Int = 0, seed: [(Int, Int)] = []) {
         self.width = width
@@ -30,6 +30,10 @@ public class GameOfLife {
             }
         }
         return cells
+    }
+
+    public func cell(x: Int, y: Int) -> Cell? {
+        return cells[x + y * height]
     }
 
     public func tick() {

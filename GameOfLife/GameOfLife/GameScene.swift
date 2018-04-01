@@ -14,80 +14,78 @@ class GameScene: SKScene {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
-    
-    override func didMove(to view: SKView) {
-        
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
+    private var lastTimeStamp: Int = 0
+    private var gameOfLife: GameOfLife!
+    private var cells = [SKShapeNode]()
+    private let margin = CGFloat(2)
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        setupGameOfLife()
+        setupGrid()
+    }
+
+    private func setupGameOfLife() {
+        gameOfLife = GameOfLife(width: 50, height: 50, seed: [
+            (10,11), (10,12), (10,13),
+            (11,12), (11,13), (11,14),
+
+            (10,25),
+            (11,26),
+            (12,24),(12,25),(12,26),
+
+            (20,27),
+            (21,28),
+            (22,26),(22,27),(22,28),
+
+            (0,27),
+            (1,28),
+            (2,26),(2,27),(2,28),
+
+            (30,20),(30,21),
+            (31,18),(31,19),(31,21),(31,22),
+            (32,18),(32,19),(32,20),(32,21),
+            (33,19),(33,20),
+
+            (40,30),(40,31),
+            (41,28),(41,29),(41,31),(41,32),
+            (42,28),(42,29),(42,30),(42,31),
+            (43,29),(43,30),
+            ])
+    }
+
+    private func tick() {
+        gameOfLife.tick()
+        for (index, node) in cells.enumerated() {
+            let cell = gameOfLife.cells[index]
+            node.strokeColor = cell.populated ? SKColor.cyan : SKColor.darkGray
+            node.lineWidth = cell.populated ? 2 : 1
         }
-        
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
+    }
+
+    private func setupGrid() {
+        let w = (self.size.height - CGFloat(gameOfLife.height) * margin) / CGFloat(gameOfLife.height)
         self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
         if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
+            spinnyNode.lineWidth = 1
         }
-    }
-    
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-    
-    override func mouseDown(with event: NSEvent) {
-        self.touchDown(atPoint: event.location(in: self))
-    }
-    
-    override func mouseDragged(with event: NSEvent) {
-        self.touchMoved(toPoint: event.location(in: self))
-    }
-    
-    override func mouseUp(with event: NSEvent) {
-        self.touchUp(atPoint: event.location(in: self))
-    }
-    
-    override func keyDown(with event: NSEvent) {
-        switch event.keyCode {
-        case 0x31:
-            if let label = self.label {
-                label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+
+        for y in 0..<gameOfLife.height {
+            for x in 0..<gameOfLife.width {
+                if let n = self.spinnyNode?.copy() as! SKShapeNode? {
+                    n.position = CGPoint(x: CGFloat(x) * w - w/2 + CGFloat(x) * margin - self.size.width/2, y: CGFloat(y) * w - w/2 + CGFloat(y) * margin - self.size.height/2)
+                    self.addChild(n)
+                    cells.append(n)
+                }
             }
-        default:
-            print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
     }
-    
-    
+
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        tick()
+        if Int(currentTime) != lastTimeStamp {
+            lastTimeStamp = Int(currentTime)
+        }
     }
 }
