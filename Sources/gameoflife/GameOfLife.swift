@@ -16,7 +16,7 @@ public class GameOfLife {
         cells = GameOfLife.generateCells(width: width, height: height)
         let cellController = CellController(width:width, height:height)
         cellController.assignNeighbors(to: cells)
-        cellController.applySeed(seed)
+        cellController.applySeed(seed, to: cells)
     }
 
     static func generateCells(width: Int, height: Int) -> [Cell] {
@@ -31,6 +31,6 @@ public class GameOfLife {
     }
 
     public func tick() {
-        print("Game of Life.")
+        cells[0].populated = true
     }
 }

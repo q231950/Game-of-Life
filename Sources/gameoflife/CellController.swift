@@ -2,6 +2,15 @@ struct CellController {
     let width: Int
     let height: Int
 
+    // MARK: Seed Control
+
+    func applySeed(_ seed: [(Int, Int)], to cells: [Cell]) {
+        seed.forEach { (x: Int, y: Int) in
+            let index = x + y * height
+            cells[index].populated = true
+        }
+    }
+
     // MARK: Neighbor Control
 
     func assignNeighbors(to cells: [Cell]) {
@@ -74,9 +83,4 @@ struct CellController {
         return cell(for: index, offset: -1, cells: cells)
     }
 
-    // MARK: Seed Control
-
-    func applySeed(_ seed: [(Int, Int)]) {
-
-    }
 }

@@ -5,11 +5,27 @@ class CellControllerTests: XCTestCase {
 
     // MARK: Configure
 
-    let cells = [Cell(), Cell(), Cell(), Cell(), Cell(), Cell(), Cell(), Cell(), Cell()]
+    var cells = [Cell(), Cell(), Cell(), Cell(), Cell(), Cell(), Cell(), Cell(), Cell()]
     let cellController = CellController(width: 3, height: 3)
 
     override func setUp() {
         cellController.assignNeighbors(to: cells)
+    }
+
+    // MARK: Seeding
+
+    func testAppliesSeed() {
+        cellController.applySeed([(1, 2)], to: cells)
+        XCTAssertTrue(cells[7].populated)
+    }
+
+    func testDoesNotAffectUnseededCells() {
+        cellController.applySeed([(1, 2)], to: cells)
+        cells.remove(at: 7)
+        let seededCells = cells.filter { (cell) -> Bool in
+            return cell.populated == true
+        }
+        XCTAssertEqual(seededCells.count, 0)
     }
 
     // MARK: Top Left

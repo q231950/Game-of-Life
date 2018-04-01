@@ -41,10 +41,27 @@ class GameoflifeTests: XCTestCase {
         }
     }
 
+    func testSeedSeeds() {
+        let gameOfLife = GameOfLife(width: 3, height: 3, seed: [(1,2), (0,1)])
+        XCTAssertTrue(gameOfLife.rows[2][1].populated, "The seed should populate the seeded cells")
+        XCTAssertTrue(gameOfLife.rows[1][0].populated, "The seed should populate the seeded cells")
+    }
+
+    func testTickUpdatesCells() {
+        let gameOfLife = GameOfLife(width: 3, height: 3, seed:[(1,1)])
+        let cells = gameOfLife.cells.map { (cell) -> Cell in
+            return cell.copy()
+        }
+        gameOfLife.tick()
+        XCTAssertNotEqual(cells, gameOfLife.cells, "A habitat with dying cells should update after a tick")
+    }
+
     static var allTests = [
         ("testEmptyGameOfLifeHasNoCells", testEmptyGameOfLifeHasNoCells),
         ("testNonEmptyGameOfLifeShouldHaveCells", testNonEmptyGameOfLifeShouldHaveCells),
         ("testGameOfLifeHasCorrectNumberOfCells", testGameOfLifeHasCorrectNumberOfCells),
         ("testGameOfLifeRows", testGameOfLifeRows),
+        ("testSeedSeeds", testSeedSeeds),
+        ("testTickUpdatesCells", testTickUpdatesCells),
         ]
 }
