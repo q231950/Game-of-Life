@@ -2,7 +2,7 @@
 
 # Rules
 
-- Any live cell with fewer than 2 live neighbours dies of underpopulation
-- Any live cell with more than 3 live neighbours dies of overpopulation
-- Any live cell with 2 or 3 live neighbours survives
-- Any dead cell with exactly 3 neighbors becomes alive
+- Any populated cell with fewer than 2 live neighbours becomes unpopulated because of underpopulation
+- Any populated cell with more than 3 populated neighbours becomes unpopulated because of overpopulation
+- Any populated cell with 2 or 3 live neighbours stays populated
+- Any unpopulated cell with exactly 3 populated neighbors becomes populated
