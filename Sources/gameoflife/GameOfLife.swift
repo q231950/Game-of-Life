@@ -8,7 +8,7 @@ public class GameOfLife {
             return Array(cells[$0..<chunkEnd])
         }
     }
-    internal let cells: [Cell]
+    internal var cells: [Cell]
     internal let width: Int
 
     public init(width: Int = 0, height: Int = 0, seed: [(Int, Int)] = []) {
@@ -31,6 +31,7 @@ public class GameOfLife {
     }
 
     public func tick() {
-        cells[0].populated = true
+        let populationController = PopulationController()
+        cells = populationController.populate(cells: cells)
     }
 }

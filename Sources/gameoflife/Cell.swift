@@ -19,7 +19,25 @@ public class Cell: Equatable {
         return lhs.populated == rhs.populated && lhs.neighbors == rhs.neighbors
     }
 
-    internal func copy() -> Cell {
+    func copy() -> Cell {
         return Cell(neighbors: neighbors, populated: populated)
+    }
+
+    func hasTwoOrThreePopulatedNeighbors() -> Bool {
+        return numberOfPopulatedNeighbors() == 3 || numberOfPopulatedNeighbors() == 2
+    }
+
+    func hasThreePopulatedNeighbors() -> Bool {
+        return numberOfPopulatedNeighbors() == 3
+    }
+
+    func hasLessThanOrEqualToThreePopulatedNeighbors() -> Bool {
+        return numberOfPopulatedNeighbors() <= 3
+    }
+
+    func numberOfPopulatedNeighbors() -> Int {
+        return neighbors.filter({ (neighbor) -> Bool in
+            return neighbor?.populated == true
+        }).count
     }
 }

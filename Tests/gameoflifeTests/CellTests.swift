@@ -55,6 +55,15 @@ class CellTests: XCTestCase {
         let otherCell = Cell(populated: true)
         XCTAssertNotEqual(cell, otherCell)
     }
+
+    func testHasThreePopulatedNeighbors() {
+        let cellWithThreeNeighbors = Cell(neighbors: [Cell(populated: true), Cell(populated: true), Cell(populated: true)])
+        XCTAssertTrue(cellWithThreeNeighbors.hasThreePopulatedNeighbors())
+    }
+
+    func testNotHasThreePopulatedNeighbors() {
+        XCTAssertFalse(cell.hasThreePopulatedNeighbors())
+    }
     
     static var allTests = [
         ("testCellHas8Neighbors", testCellHas8Neighbors),
