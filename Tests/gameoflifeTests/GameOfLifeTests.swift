@@ -45,5 +45,6 @@ class GameoflifeTests: XCTestCase {
         ("testEmptyGameOfLifeHasNoCells", testEmptyGameOfLifeHasNoCells),
         ("testNonEmptyGameOfLifeShouldHaveCells", testNonEmptyGameOfLifeShouldHaveCells),
         ("testGameOfLifeHasCorrectNumberOfCells", testGameOfLifeHasCorrectNumberOfCells),
+        ("testGameOfLifeRows", testGameOfLifeRows),
         ]
 }
