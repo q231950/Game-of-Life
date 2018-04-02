@@ -52,7 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3B30FC4E2071146600F75E0E /* GameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B30FC4E2071146600F75E0E /* Game of Life macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game of Life macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B30FC512071146600F75E0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B30FC532071146600F75E0E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		3B30FC552071146600F75E0E /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		3B30FC4F2071146600F75E0E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B30FC4E2071146600F75E0E /* GameOfLife.app */,
+				3B30FC4E2071146600F75E0E /* Game of Life macOS.app */,
 				3B30FC662071146700F75E0E /* GameOfLifeTests.xctest */,
 				3B30FC712071146700F75E0E /* GameOfLifeUITests.xctest */,
 			);
@@ -163,9 +163,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3B30FC4D2071146600F75E0E /* GameOfLife */ = {
+		3B30FC4D2071146600F75E0E /* Game of Life macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B30FC7A2071146700F75E0E /* Build configuration list for PBXNativeTarget "GameOfLife" */;
+			buildConfigurationList = 3B30FC7A2071146700F75E0E /* Build configuration list for PBXNativeTarget "Game of Life macOS" */;
 			buildPhases = (
 				3B30FC4A2071146600F75E0E /* Sources */,
 				3B30FC4B2071146600F75E0E /* Frameworks */,
@@ -176,9 +176,9 @@
 			);
 			dependencies = (
 			);
-			name = GameOfLife;
+			name = "Game of Life macOS";
 			productName = GameOfLife;
-			productReference = 3B30FC4E2071146600F75E0E /* GameOfLife.app */;
+			productReference = 3B30FC4E2071146600F75E0E /* Game of Life macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3B30FC652071146700F75E0E /* GameOfLifeTests */ = {
@@ -253,7 +253,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3B30FC4D2071146600F75E0E /* GameOfLife */,
+				3B30FC4D2071146600F75E0E /* Game of Life macOS */,
 				3B30FC652071146700F75E0E /* GameOfLifeTests */,
 				3B30FC702071146700F75E0E /* GameOfLifeUITests */,
 			);
@@ -320,12 +320,12 @@
 /* Begin PBXTargetDependency section */
 		3B30FC682071146700F75E0E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3B30FC4D2071146600F75E0E /* GameOfLife */;
+			target = 3B30FC4D2071146600F75E0E /* Game of Life macOS */;
 			targetProxy = 3B30FC672071146700F75E0E /* PBXContainerItemProxy */;
 		};
 		3B30FC732071146700F75E0E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3B30FC4D2071146600F75E0E /* GameOfLife */;
+			target = 3B30FC4D2071146600F75E0E /* Game of Life macOS */;
 			targetProxy = 3B30FC722071146700F75E0E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -587,7 +587,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B30FC7A2071146700F75E0E /* Build configuration list for PBXNativeTarget "GameOfLife" */ = {
+		3B30FC7A2071146700F75E0E /* Build configuration list for PBXNativeTarget "Game of Life macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B30FC7B2071146700F75E0E /* Debug */,
