@@ -62,6 +62,16 @@ class GameoflifeTests: XCTestCase {
         XCTAssertTrue(gameOfLife.cells[4].populated, "A cell with 3 populated neighbors should become populated")
     }
 
+    func testCellForXandY() {
+        let gameOfLife = GameOfLife(width: 3, height: 3, seed:[(0,0), (0,1), (0,2)])
+        let x = Int(arc4random_uniform(3))
+        let y = Int(arc4random_uniform(3))
+        guard let cell = gameOfLife.cell(x: x, y: y) else {
+            XCTFail("With x and y in bounds a cell should be returned")
+            return
+        }
+        XCTAssertEqual(cell, gameOfLife.rows[y][x])
+    }
     static var allTests = [
         ("testEmptyGameOfLifeHasNoCells", testEmptyGameOfLifeHasNoCells),
         ("testNonEmptyGameOfLifeShouldHaveCells", testNonEmptyGameOfLifeShouldHaveCells),
@@ -70,5 +80,6 @@ class GameoflifeTests: XCTestCase {
         ("testSeedSeeds", testSeedSeeds),
         ("testTickUpdatesCells", testTickUpdatesCells),
         ("testTickPopulatesCellToBePopulated", testTickPopulatesCellToBePopulated),
+        ("testCellForXandY", testCellForXandY),
         ]
 }
