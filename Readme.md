@@ -1,10 +1,29 @@
 # Game of Life
 
-It's so much fun, every software engineer should create a _Game of Life_ once. This one uses Apple's SpriteKit as a frontend, the logic (`GameOfLifeCore`) is encapsuled in an Swift Package written TDD style, with a code coverage of 100% 🎉 I think a XCUITest on the frontend will be overkill...will it? I'll think about it 😅
+It's so much fun, every software engineer should create a _Game of Life_ once. This one uses Apple's SpriteKit as a frontend, the logic is encapsuled in a Swift Package, `GameOfLifeCore`.
 
 ![Screenshot](window.png)
 
+# Install
+
+```bash
+$ cd GameOfLifeCore
+$ swift package generate-xcodeproj
+generated: ./GameOfLifeCore.xcodeproj
+$ open ../GameOfLife.xcworkspace/
+```
+
 The initial seed can be adjusted in `setupGameOfLife()` of `GameScene.swift`. I've commented out some gliders and spaceships.
+
+# Test
+
+The `GameOfLifeCore` package is written TDD style, with a code coverage of 100% 🎉 run the tests within the `GameOfLifeCore` directory.
+
+```
+$ swift test
+```
+
+ I think a XCUITest on the frontend will be overkill...will it? I'll think about it 😅
 
 # Rules
 
