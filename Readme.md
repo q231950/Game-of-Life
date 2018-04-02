@@ -59,6 +59,7 @@ Compile Swift Module 'GameOfLifeCore' (4 sources)
 Compile Swift Module 'gameoflife_cli' (2 sources)
 Linking ./.build/x86_64-apple-macosx10.10/debug/GameOfLife-cli
 $ ./.build/x86_64-apple-macosx10.10/debug/GameOfLife-cli
+```
 
 ![window console](window-console.png)
 
