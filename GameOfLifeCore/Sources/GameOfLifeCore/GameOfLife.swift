@@ -1,3 +1,5 @@
+import Foundation
+
 public class GameOfLife {
 
     public var rows: [[Cell]] {

@@ -1,3 +1,5 @@
+import Foundation
+
 struct CellController {
     let width: Int
     let height: Int

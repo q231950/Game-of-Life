@@ -8,7 +8,12 @@
 
 import SpriteKit
 import GameplayKit
+
+#if os(OSX)
 import GameOfLifeCore
+#elseif os(iOS)
+import GameOfLifeCoreTouch
+#endif
 
 class GameScene: SKScene {
     

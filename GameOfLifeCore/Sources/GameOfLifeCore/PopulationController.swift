@@ -1,3 +1,5 @@
+import Foundation
+
 class PopulationController {
     func populate(cells: [Cell]) -> [Cell] {
         return cells.map({ (cell) -> Cell in

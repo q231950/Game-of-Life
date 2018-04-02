@@ -1,3 +1,5 @@
+import Foundation
+
 public class Cell: Equatable {
     public internal(set) var populated: Bool! = false
     var neighbors: [Cell?]
