@@ -1,4 +1,4 @@
-# Game Of Life
+# Game of Life
 
 It's so much fun, every software engineer should create a _Game of Life_ once. This one uses Apple's SpriteKit as a frontend, the logic (`GameOfLifeCore`) is encapsuled in an Swift Package written TDD style, with a code coverage of 100% 🎉 I think a XCUITest on the frontend will be overkill...will it? I'll think about it 😅
 
